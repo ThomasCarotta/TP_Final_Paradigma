@@ -19,44 +19,44 @@ def automata_enteros(cadena):
        Σ.append(i) 
 
     EI= 'A'
-    EF= ['B,D']
+    EF= 'B,D'
     EA= EI
     
     cadenas=str(cadena)
     for caracter in cadenas:
-        print (caracter)
+        #print (caracter)
         if caracter in Σ:
-            print ("El carcacter pertenece al alfabeto")
+            #print ("El carcacter pertenece al alfabeto")
             for f in tablaEnteros:
                 if EA == f[0] and caracter in f[1]:
                     TablaC.append([EA,caracter,f[2]])  
                     EA=f[2]
-                    print ("Estado actual es : " + str(EA))
+                    # print ("Estado actual es : " + str(EA))
                     break
         else:
-            print("Cadena no pertenece al alfabeto")
+            # print("Cadena no pertenece al alfabeto")
             verificador = False
+    
+    if EA != EF:
+        verificador=False
+    return(verificador)
 
-    if EA in EF and (verificador == True):
-        print("------------------------------")
-        print("Es valida la cadena de entrada")
-        print("____Tabla de transiciones_____")
-        for t in TablaC:
-            print (t)
-    else:
-        print("---------------------------------")
-        print("NO es valida la cadena de entrada")
-        print("______Tabla de transiciones______")
-        for t in TablaC:
-            print (t)
+    # if EA in EF and (verificador == True):
+    #     print("------------------------------")
+    #     print("Es valida la cadena de entrada")
+    #     print("____Tabla de transiciones_____")
+    #     for t in TablaC:
+    #         print (t)
+    # else:
+    #     print("---------------------------------")
+    #     print("NO es valida la cadena de entrada")
+    #     print("______Tabla de transiciones______")
+    #     for t in TablaC:
+    #         print (t)
     
 def automata_identificadores(cadena):
     letra = letras()
     numero = numeros()
-
-    palabrasReservadas=['False', 'None', 'True', 'and', 'as', 'assert', 'async', 'await', 'break', 'class',
-                         'continue', 'def', 'del', 'elif', 'else', 'except', 'finally', 'for', 'from', 'global', 'if', 'import', 'in', 
-                         'is', 'lambda', 'nonlocal', 'not', 'or', 'pass', 'raise', 'return', 'try', 'while','with','yield']
 
     tablaIdentificadores=[['A', '_','FINAL'],
                   ['A', letra,'FINAL'],
@@ -78,42 +78,42 @@ def automata_identificadores(cadena):
        Σ.append(i) 
 
     EI= 'A'
-    EF= ['FINAL']
+    EF= 'FINAL'
     EA= EI
     
     palabras=cadena.split()
 
     cadenas=str(cadena)
-    for i in palabras:
-        if i in palabrasReservadas:
-            print('Palabra reservada')
+    for caracter in cadenas:
+        # print (caracter)
+        if caracter in Σ:
+            # print ("El carcacter pertenece al alfabeto")
+            for f in tablaIdentificadores:
+                if EA == f[0] and caracter in f[1]:
+                    TablaC.append([EA,caracter,f[2]])  
+                    EA=f[2]
+                    # print ("Estado actual es : " + str(EA))
+                    break
         else:
-            for caracter in cadenas:
-                print (caracter)
-                if caracter in Σ:
-                    print ("El carcacter pertenece al alfabeto")
-                    for f in tablaIdentificadores:
-                        if EA == f[0] and caracter in f[1]:
-                            TablaC.append([EA,caracter,f[2]])  
-                            EA=f[2]
-                            print ("Estado actual es : " + str(EA))
-                            break
-                else:
-                    print("Cadena no pertenece al alfabeto")
-                    verificador = False
+            # print("Cadena no pertenece al alfabeto")
+            verificador = False
 
-            if EA in EF and (verificador == True):
-                print("------------------------------")
-                print("Es valida la cadena de entrada")
-                print("____Tabla de transiciones_____")
-                for t in TablaC:
-                    print (t)
-            else:
-                print("---------------------------------")
-                print("NO es valida la cadena de entrada")
-                print("______Tabla de transiciones______")
-                for t in TablaC:
-                    print (t)
+    if EA != EF:
+        verificador=False
+    return(verificador)
+
+            # if EA in EF and (verificador == True):
+            #     print("------------------------------")
+            #     print("Es valida la cadena de entrada")
+            #     print("____Tabla de transiciones_____")
+            #     for t in TablaC:
+            #         print (t)
+            # else:
+            #     print("---------------------------------")
+            #     print("NO es valida la cadena de entrada")
+            #     print("______Tabla de transiciones______")
+            #     for t in TablaC:
+            #         print (t)
 
 def automata_reales(cadena):
     numero = numeros()
@@ -162,34 +162,37 @@ def automata_reales(cadena):
        Σ.append(i) 
 
     EI= 'A'
-    EF= ['H,K']
+    EF= 'H,K'
     EA= EI
     
     cadenas=str(cadena)
     for caracter in cadenas:
-        print (caracter)
+        # print (caracter)
         if caracter in Σ:
-            print ("El carcacter pertenece al alfabeto")
+            # print ("El carcacter pertenece al alfabeto")
             for f in tablaIdentificadores:
                 if EA == f[0] and caracter in f[1]:
                     TablaC.append([EA,caracter,f[2]])  
                     EA=f[2]
-                    print ("Estado actual es : " + str(EA))
+                    # print ("Estado actual es : " + str(EA))
                     break
         else:
-            print("Cadena no pertenece al alfabeto")
+            # print("Cadena no pertenece al alfabeto")
             verificador = False
+    
+    if EA != EF:
+        verificador=False
+    return(verificador)
 
-    if EA in EF and (verificador == True):
-        print("------------------------------")
-        print("Es valida la cadena de entrada")
-        print("____Tabla de transiciones_____")
-        for t in TablaC:
-            print (t)
-    else:
-        print("---------------------------------")
-        print("NO es valida la cadena de entrada")
-        print("______Tabla de transiciones______")
-        for t in TablaC:
-            print (t)
-
+    # if EA in EF and (verificador == True):
+    #     print("------------------------------")
+    #     print("Es valida la cadena de entrada")
+    #     print("____Tabla de transiciones_____")
+    #     for t in TablaC:
+    #         print (t)
+    # else:
+    #     print("---------------------------------")
+    #     print("NO es valida la cadena de entrada")
+    #     print("______Tabla de transiciones______")
+    #     for t in TablaC:
+    #         print (t)
